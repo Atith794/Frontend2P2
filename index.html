@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="Stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Heading -->
+      <div class="heading1">Student Management CRUD</div>
+
+      <!-- Input form -->
+      <form class="inputform">
+        <input type="text" placeholder="Name" name="Name" />
+        <input type="text" placeholder="E-mail" name="Mailid" />
+        <input
+          type="number"
+          placeholder="GPA"
+          name="GPA"
+          step="0.1"
+          min="0.1"
+          max="10"
+        />
+        <input
+          type="number"
+          placeholder="Age"
+          name="Age"
+          step="1"
+          min="1"
+          max="150"
+        />
+        <input type="text" placeholder="Degree" name="Degree" />
+        
+      </form>
+
+        <!-- Button -->
+        <div class="Add_student">
+            <input class="btn1" onclick="getData()"  type="button" value="Add student" />
+        </div>
+
+
+      <!-- Search bar -->
+      <div class="Search_bar">
+        <input class="sbinput"
+          type="text"
+          placeholder="Search by Name,E-mail,Age,CGPA or Degree "
+        />
+      </div>
+
+      <!-- Table -->
+      <div class="table_div">
+        <table class="student_table">
+        <thead>
+            <tr>
+                <th id="col1" colspan="1">ID</th>
+                <th id="col2" colspan="5">Name</th>
+                <th id="col3" colspan="5">E-mail</th>
+                <th id="col4" colspan="2">Age</th>
+                <th id="col5" colspan="2">GPA</th>
+                <th id="col6" colspan="3">Degree</th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
