@@ -6,16 +6,15 @@ let formmode = 0;
 let editIndex = -1;
 let studentData = JSON.parse(localStorage.getItem("studentData") ?? "[]");
 
-// functions
-// adding new students on click
+
 function addStudent() {
   const data = new FormData(form);
   let newstudent = {
-    name: "no name",
-    email: "no@email.com",
-    gpa: "0",
-    age: "16",
-    degree: "BTech",
+    name: "Name",
+    email: "E-mail",
+    gpa: "1",
+    age: "1",
+    degree: "B.E",
   };
   data.forEach((v, k) => (newstudent[k] = v ? v : newstudent[k]));
   studentData = [...studentData, newstudent];
@@ -24,7 +23,7 @@ function addStudent() {
   display(studentData);
 }
 
-// handling click ev for edit of student
+
 function handleStudentEdit(i) {
   editIndex = i;
   formmode = 1;
@@ -36,7 +35,7 @@ function handleStudentEdit(i) {
   form.degree.value = studentData[i].degree;
 }
 
-// editing student
+
 function editStudent() {
   const data = new FormData(form);
   data.forEach((v, k) => (studentData[editIndex][k] = v));
@@ -46,14 +45,14 @@ function editStudent() {
   handleReset();
 }
 
-// deleting student
+
 function handleStudentDelete(i) {
   studentData = studentData.filter((_, index) => index !== i);
   localStorage.setItem("studentData", JSON.stringify(studentData));
   display(studentData);
 }
 
-// displaying the student data from the params array
+
 function display(data) {
   document.getElementById("tbody").remove();
   const newTbody = document.createElement("tbody");
@@ -92,7 +91,7 @@ function display(data) {
   tableContainer.append(newTbody);
 }
 
-// filtering the student array according to whatever is searched
+
 function handleSearch() {
   if (!search.value) display(studentData);
   else {
@@ -108,14 +107,14 @@ function handleSearch() {
   }
 }
 
-// handling what to do when form is reset
+
 function handleReset() {
   formmode = 0;
   formButton.value = "Add Student";
   form.reset();
 }
 
-// main logic
+
 document.onload = display(studentData);
 search.addEventListener("keyup", handleSearch);
 form.addEventListener("reset", handleReset);
